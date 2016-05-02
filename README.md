@@ -3,7 +3,7 @@ A jquery function to set elements with equal heights
 
 ## Installation
 ```sh
-$ bower install --save jquery-nitea-equalt-height
+$ bower install --save jquery-nitea-equal-height
 ```
 ## Example
 ```sh
