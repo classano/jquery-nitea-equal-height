@@ -27,3 +27,11 @@ $(function(){
 });
 ```
 
+## HTML Example
+```sh
+<div data-n-equal-height-rel="row1">This is a column in row 1</div> 
+<div data-n-equal-height-rel="row1">This is another column in row 1</div> 
+<div data-n-equal-height-rel="row2">This is a column in row 2</div> 
+
+<div data-n-equal-height-rel="row1">This is a column in row 3 but should have the same height as columns in row 1</div>
+```
