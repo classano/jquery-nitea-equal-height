@@ -1,0 +1,24 @@
+{
+  "name": "jquery-nitea-equal-height",
+  "main": "jquery-nitea-equal-height.js",
+  "authors": [
+    "Classano <claes@noren.me>"
+  ],
+  "description": "A jquery function to set elements with equal heights",
+  "keywords": [
+    "equal",
+    "heights"
+  ],
+  "license": "MIT",
+  "homepage": "www.nitea.se",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}
