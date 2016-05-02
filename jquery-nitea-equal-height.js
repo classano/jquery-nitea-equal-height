@@ -54,7 +54,7 @@
 		 * Loop through every nEqualHeightArr.
 		 */
 		var equalHeight;
-		$.each(nEqualHeightArr, function(){
+		$.each(nEqualHeightArr, function(i,item){
 			if(settings.type == 'max'){
 				equalHeight = 0;
 			}else{
