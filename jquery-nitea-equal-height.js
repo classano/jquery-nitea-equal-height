@@ -51,7 +51,7 @@
 		});
 
 		/**
-		 * Loop through every nEqualHeightArr.
+		 * Loop through every nEqualHeightArr..
 		 */
 		var equalHeight;
 		$.each(nEqualHeightArr, function(i,item){
