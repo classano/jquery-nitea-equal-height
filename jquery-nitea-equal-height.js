@@ -10,12 +10,14 @@
 		 * Variables for window resize
 		 */
 		var resizeListener;
-		var pause = 500;
 
 		var settings = $.extend({
 			type: 'max', // Possible values is max or min
 			outerHeight: true, // Possible values is true or false
 			resize: true, // Possible values is true or false
+			pause: 500, // Possible values is Integer,
+			ignoreMin: true, // Possible values is true or false
+			ignoreMax: true // Possible values is true or false
 		}, options );
 
 		/**
@@ -34,7 +36,7 @@
 				 */
 				resizeListener = setTimeout(function(){
 					$().nEqualHeight(options);
-				},pause);
+				},settings.pause);
 			});
 		}
 
@@ -73,24 +75,31 @@
 			 * Get the current heights and compare
 			 */
 			$('[data-n-equal-height-rel="'+item+'"]').each(function(){
-				if(settings.type == 'max'){
-					if(settings.outerHeight){
-						if(equalHeight < $(this).outerHeight()){
-							equalHeight = $(this).outerHeight();
+				if($(window).width() < parseInt($(this).data('n-equal-height-ignore-min')) && ignoreMin === true) {
+					equalHeight = 'auto';
+				}
+				else if($(window).width() > parseInt($(this).data('n-equal-height-ignore-max')) && ignoreMin === true) {
+					equalHeight = 'auto';
+				} else {
+					if(settings.type == 'max'){
+						if(settings.outerHeight){
+							if(equalHeight < $(this).outerHeight()){
+								equalHeight = $(this).outerHeight();
+							}
+						}else{
+							if(equalHeight < $(this).height()){
+								equalHeight = $(this).height();
+							}
 						}
 					}else{
-						if(equalHeight < $(this).height()){
-							equalHeight = $(this).height();
-						}
-					}
-				}else{
-					if(settings.outerHeight){
-						if(equalHeight > $(this).outerHeight()){
-							equalHeight = $(this).outerHeight();
-						}
-					}else{
-						if(equalHeight > $(this).height()){
-							equalHeight = $(this).height();
+						if(settings.outerHeight){
+							if(equalHeight > $(this).outerHeight()){
+								equalHeight = $(this).outerHeight();
+							}
+						}else{
+							if(equalHeight > $(this).height()){
+								equalHeight = $(this).height();
+							}
 						}
 					}
 				}
