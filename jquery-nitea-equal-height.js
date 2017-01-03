@@ -75,10 +75,10 @@
 			 * Get the current heights and compare
 			 */
 			$('[data-n-equal-height-rel="'+item+'"]').each(function(){
-				if($(window).width() < parseInt($(this).data('n-equal-height-ignore-min')) && ignoreMin === true) {
+				if($(window).width() < parseInt($(this).data('n-equal-height-ignore-min')) && settings.ignoreMin === true) {
 					equalHeight = 'auto';
 				}
-				else if($(window).width() > parseInt($(this).data('n-equal-height-ignore-max')) && ignoreMin === true) {
+				else if($(window).width() > parseInt($(this).data('n-equal-height-ignore-max')) && settings.ignoreMin === true) {
 					equalHeight = 'auto';
 				} else {
 					if(settings.type == 'max'){
