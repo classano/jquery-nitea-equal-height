@@ -7,7 +7,7 @@ $ bower install --save jquery-nitea-equal-height
 ```
 ## Example
 ```sh
-$(function(){
+$(window).load(function(){
     $().nEqualHeight();
 });
 ```
@@ -23,7 +23,7 @@ $(function(){
 
 ###### Example
 ```sh
-$(function(){
+$(window).load(function(){
     $().nEqualHeight({
         type: 'max',
 		outerHeight: true,
