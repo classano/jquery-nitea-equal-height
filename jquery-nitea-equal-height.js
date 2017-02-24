@@ -3,7 +3,7 @@
  * Author Nitea AB (Claes Norén) www.nitea.se
  */
 
-(function($, window, document){
+(function($, window, document) {
 	$.fn.nEqualHeight = function(options) {
 
 		/**
@@ -23,8 +23,8 @@
 		/**
 		 * If resize is true then we make the call
 		 */
-		if(settings.resize){	
-			$(window).resize(function(){
+		if(settings.resize) {	
+			$(window).resize(function() {
 
 				/**
 				 * clear the timeout
@@ -34,7 +34,7 @@
 				/**
 				 * do the function with timeout so we do not spam the browser
 				 */
-				resizeListener = setTimeout(function(){
+				resizeListener = setTimeout(function() {
 					$().nEqualHeight(options);
 				},settings.pause);
 			});
@@ -45,19 +45,24 @@
 		 * get the unique values and save in a array
 		 */
 		var nEqualHeightArr = [];
-		$('[data-n-equal-height-rel]').each(function(i){
+		$('[data-n-equal-height-rel]').each(function(i) {
 			$(this).height('');
-			if($.inArray($(this).data('n-equal-height-rel'),nEqualHeightArr) < 0){
+			if($.inArray($(this).data('n-equal-height-rel'),nEqualHeightArr) < 0) {
 				nEqualHeightArr[i] = $(this).data('n-equal-height-rel');
 			}
 		});
 
 		/**
+		 * Reverse the array so we build from the end
+		 */
+		nEqualHeightArr.reverse();
+
+		/**
 		 * Loop through every nEqualHeightArr..
 		 */
 		var equalHeight;
-		$.each(nEqualHeightArr, function(i,item){
-			if(settings.type == 'max'){
+		$.each(nEqualHeightArr, function(i,item) {
+			if(settings.type === 'max') {
 				equalHeight = 0;
 			}else{
 				equalHeight = 9999999999999;
@@ -66,7 +71,7 @@
 			/**
 			 * Reset all data-n-equal-height-rel. This shoulden't be needed, but it is......
 			 */
-			$('[data-n-equal-height-rel="'+item+'"]').each(function(){
+			$('[data-n-equal-height-rel="'+item+'"]').each(function() {
 				$(this).height(1);
 				$(this).height('');
 			});
@@ -74,30 +79,31 @@
 			/**
 			 * Get the current heights and compare
 			 */
-			$('[data-n-equal-height-rel="'+item+'"]').each(function(){
+			$('[data-n-equal-height-rel="'+item+'"]').each(function() {
+
 				if($(window).width() < parseInt($(this).data('n-equal-height-ignore-min')) && settings.ignoreMin === true) {
 					equalHeight = 'auto';
 				}
 				else if($(window).width() > parseInt($(this).data('n-equal-height-ignore-max')) && settings.ignoreMin === true) {
 					equalHeight = 'auto';
 				} else {
-					if(settings.type == 'max'){
-						if(settings.outerHeight){
-							if(equalHeight < $(this).outerHeight()){
+					if(settings.type === 'max') {
+						if(settings.outerHeight) {
+							if(equalHeight < $(this).outerHeight()) {
 								equalHeight = $(this).outerHeight();
 							}
 						}else{
-							if(equalHeight < $(this).height()){
+							if(equalHeight < $(this).height()) {
 								equalHeight = $(this).height();
 							}
 						}
 					}else{
-						if(settings.outerHeight){
-							if(equalHeight > $(this).outerHeight()){
+						if(settings.outerHeight) {
+							if(equalHeight > $(this).outerHeight()) {
 								equalHeight = $(this).outerHeight();
 							}
 						}else{
-							if(equalHeight > $(this).height()){
+							if(equalHeight > $(this).height()) {
 								equalHeight = $(this).height();
 							}
 						}
